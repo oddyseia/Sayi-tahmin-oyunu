@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,44 +39,14 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Sayı Tahmin Oyunu</h1>
     <p id="result">1 ile 10 arasında bir tahminde bulunun</p>
     <input type="text" id="guessInput" placeholder="Tahmininizi girin">
     <button onclick="tahminKontrol()">Tahmin Et</button>
 
-    <script>
-        function tahminKontrol() {
-            const tahminInput = document.getElementById('guessInput');
-            const sonucMesaji = document.getElementById('result');
-
-            const kullaniciTahmini = parseInt(tahminInput.value);
-
-            if (isNaN(kullaniciTahmini) || kullaniciTahmini < 1 || kullaniciTahmini > 10) {
-                sonucMesaji.innerHTML = 'Lütfen 1 ile 10 arasında geçerli bir sayı girin.';
-                sonucMesaji.style.color = '#e74c3c';
-            } else {
-                tahminInput.disabled = true;
-
-                const gizliSayi = Math.floor(Math.random() * 10) + 1;
-
-                if (kullaniciTahmini === gizliSayi) {
-                    sonucMesaji.innerHTML = 'Tebrikler! Doğru tahmin ettiniz!';
-                    sonucMesaji.style.color = '#2ecc71';
-                } else {
-                    sonucMesaji.innerHTML = 'Yanlış tahmin. Tekrar deneyin!';
-                    sonucMesaji.style.color = '#e74c3c';
-                }
-
-                setTimeout(function() {
-                    sonucMesaji.innerHTML = '1 ile 10 arasında bir tahminde bulunun';
-                    sonucMesaji.style.color = '#333';
-                    tahminInput.value = '';
-                    tahminInput.disabled = false;
-                    tahminInput.focus();
-                }, 5000);
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
